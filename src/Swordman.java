@@ -12,7 +12,7 @@ public class Swordman implements Character{
     private double SPD;
     private double atk;
     private double def;
-    private List<Accessory> equippedAccessories;
+
 
     public Swordman(String name){
         this.name = name;
@@ -71,8 +71,4 @@ public class Swordman implements Character{
         System.out.println("Defense : " + this.def);
     }
 
-
-    public List<Accessory> getEquippedAccessories() {
-        return equippedAccessories;
-    }
 }

@@ -11,15 +11,6 @@ public interface Character {
 
     void updateStatus();
 
-    default void equipWeapon(){
-
-    }
-
-    default void equipAccessory(Accessory accessory){
-
-    }
-
-
     default void updateExp(int exp){
         this.setCurrentExp(getCurrentExp()+exp);
         if(this.getCurrentExp() >= this.getMaxExp()){
@@ -31,6 +22,6 @@ public interface Character {
 
 
 
-    List<Accessory> getEquippedAccessories();
+
 }
 
