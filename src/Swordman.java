@@ -24,50 +24,6 @@ public class Swordman implements Character{
     private boolean isRingEquip;
     private boolean isArmorEquip;
 
-    public void setBuffSPD(double spd){
-        this.buffSPD+=spd;
-    }
-    public void setBuffAtk(double atk){
-        this.buffAtk += atk;
-    }
-    public void setBuffDef(double def){
-        this.buffDef +=def;
-    }
-    public void setBuffMana(double mana){
-        this.buffMana +=mana;
-    }
-    public void setBootEquip(boolean boot) {
-        isBootEquip = boot;
-    }
-    public void setRingEquip(boolean ring){
-        isRingEquip = ring;
-    }
-    public void setArmorEquip(boolean armor){
-        isArmorEquip = armor;
-    }
-
-    @Override
-    public boolean getBootEquip() {
-        return isBootEquip;
-    }
-
-    @Override
-    public boolean getRingEquip() {
-        return isRingEquip;
-    }
-    @Override
-    public boolean getArmorEquip() {
-        return isArmorEquip;
-    }
-
-    @Override
-    public void updateTotalStatus() {
-        totalSPD = SPD+buffSPD;
-        totalDef = def+buffDef;
-        totalAtk = atk+buffAtk;
-        totalMana = maxMana+buffMana;
-    }
-
     public Swordman(String name){
         this.name = name;
         level = 1;
@@ -111,6 +67,49 @@ public class Swordman implements Character{
     }
     public String getJob(){
         return "Swordman";
+    }
+    public void setBuffSPD(double spd){
+        this.buffSPD+=spd;
+    }
+    public void setBuffAtk(double atk){
+        this.buffAtk += atk;
+    }
+    public void setBuffDef(double def){
+        this.buffDef +=def;
+    }
+    public void setBuffMana(double mana){
+        this.buffMana +=mana;
+    }
+    public void setBootEquip(boolean boot) {
+        isBootEquip = boot;
+    }
+    public void setRingEquip(boolean ring){
+        isRingEquip = ring;
+    }
+    public void setArmorEquip(boolean armor){
+        isArmorEquip = armor;
+    }
+
+    @Override
+    public boolean getBootEquip() {
+        return isBootEquip;
+    }
+
+    @Override
+    public boolean getRingEquip() {
+        return isRingEquip;
+    }
+    @Override
+    public boolean getArmorEquip() {
+        return isArmorEquip;
+    }
+
+    @Override
+    public void updateTotalStatus() {
+        totalSPD = SPD+buffSPD;
+        totalDef = def+buffDef;
+        totalAtk = atk+buffAtk;
+        totalMana = maxMana+buffMana;
     }
     public void displayStats() {
         System.out.println("name : " + this.name);

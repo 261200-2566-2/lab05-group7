@@ -58,5 +58,6 @@ public class boot implements accessories{
         mana = 2 * level;
         spd = 15 * level;
         maxExp = 10 * level;
+        updateExp(0);
     }
 }

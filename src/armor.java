@@ -58,5 +58,6 @@ public class armor implements accessories{
         mana = level;
         spd = -5*level;
         maxExp = 10*level;
+        updateExp(0);
     }
 }

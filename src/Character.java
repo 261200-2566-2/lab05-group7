@@ -20,6 +20,14 @@ public interface Character {
     void setArmorEquip(boolean armor);
     boolean getArmorEquip();
     void updateTotalStatus();
+    default void updateExp(int exp){
+        this.setCurrentExp(getCurrentExp()+exp);
+        if(this.getCurrentExp() >= this.getMaxExp()){
+            setCurrentExp(getCurrentExp()-getMaxExp());
+            this.updateLevel();
+
+        }
+    }
     default void equipBoot(boot boot){
         if(!getBootEquip()) {
             setBootEquip(true);
@@ -93,14 +101,6 @@ public interface Character {
             updateTotalStatus();
         }else {
             System.out.println("doesn't equip armor");
-        }
-    }
-    default void updateExp(int exp){
-        this.setCurrentExp(getCurrentExp()+exp);
-        if(this.getCurrentExp() >= this.getMaxExp()){
-            setCurrentExp(getCurrentExp()-getMaxExp());
-            this.updateLevel();
-
         }
     }
 }

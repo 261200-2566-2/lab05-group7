@@ -58,5 +58,6 @@ public class ring implements accessories{
         mana = 15 * level;
         spd = level;
         maxExp = 10*level;
+        updateExp(0);
     }
 }

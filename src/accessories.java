@@ -16,5 +16,4 @@ public interface accessories {
             updateLevel();
         }
     }
-
 }
