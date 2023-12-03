@@ -6,6 +6,14 @@ public class ring implements accessories{
     private int currentExp;
     private int maxExp;
     private int level;
+    public ring(){
+        level = 1;
+        this.spd = 20;
+        this.atk = 10;
+        this.def = 5;
+        this.mana = 50;
+        this.updateStatus();
+    }
     @Override
     public double getAtk() {
         return atk;

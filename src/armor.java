@@ -6,6 +6,14 @@ public class armor implements accessories{
     private int currentExp;
     private int maxExp;
     private int level;
+    public armor(){
+        level = 1;
+        this.spd = -30;
+        this.atk = 30;
+        this.def = 60;
+        this.mana = 10;
+        this.updateStatus();
+    }
     @Override
     public double getAtk() {
         return atk;

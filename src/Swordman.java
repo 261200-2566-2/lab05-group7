@@ -12,7 +12,61 @@ public class Swordman implements Character{
     private double SPD;
     private double atk;
     private double def;
+    private double buffSPD;
+    private double buffAtk;
+    private double buffDef;
+    private double buffMana;
+    private double totalSPD;
+    private double totalAtk;
+    private double totalDef;
+    private double totalMana;
+    private boolean isBootEquip;
+    private boolean isRingEquip;
+    private boolean isArmorEquip;
 
+    public void setBuffSPD(double spd){
+        this.buffSPD+=spd;
+    }
+    public void setBuffAtk(double atk){
+        this.buffAtk += atk;
+    }
+    public void setBuffDef(double def){
+        this.buffDef +=def;
+    }
+    public void setBuffMana(double mana){
+        this.buffMana +=mana;
+    }
+    public void setBootEquip(boolean boot) {
+        isBootEquip = boot;
+    }
+    public void setRingEquip(boolean ring){
+        isRingEquip = ring;
+    }
+    public void setArmorEquip(boolean armor){
+        isArmorEquip = armor;
+    }
+
+    @Override
+    public boolean getBootEquip() {
+        return isBootEquip;
+    }
+
+    @Override
+    public boolean getRingEquip() {
+        return isRingEquip;
+    }
+    @Override
+    public boolean getArmorEquip() {
+        return isArmorEquip;
+    }
+
+    @Override
+    public void updateTotalStatus() {
+        totalSPD = SPD+buffSPD;
+        totalDef = def+buffDef;
+        totalAtk = atk+buffAtk;
+        totalMana = maxMana+buffMana;
+    }
 
     public Swordman(String name){
         this.name = name;
@@ -31,14 +85,12 @@ public class Swordman implements Character{
         def = 65+(6*level);
     }
 
-//    private void levelAscending(){
-//        level++;
-//        updateStatus();
-//    }
 
     public void updateLevel(){
         level++;
         updateStatus();
+        updateTotalStatus();
+        updateExp(0);
     }
 
     public String getName(){
@@ -56,7 +108,6 @@ public class Swordman implements Character{
     }
     public void setCurrentExp(int exp){
         this.currentExp = exp;
-
     }
     public String getJob(){
         return "Swordman";
@@ -65,10 +116,10 @@ public class Swordman implements Character{
         System.out.println("name : " + this.name);
         System.out.println("level " + this.level+ " | exp : " + this.currentExp +"/" + this.maxExp);
         System.out.println("HP : " + this.currentHp +"/" + this.maxHp);
-        System.out.println("Mana : " + this.currentMana +"/" + this.maxMana);
-        System.out.println("Speed : " + this.SPD);
-        System.out.println("Attack : " + this.atk);
-        System.out.println("Defense : " + this.def);
+        System.out.println("Mana : " + this.currentMana +"/" + this.totalMana);
+        System.out.println("Speed : " + this.totalSPD);
+        System.out.println("Attack : " + this.totalAtk);
+        System.out.println("Defense : " + this.totalDef);
     }
 
 }

@@ -6,6 +6,14 @@ public class boot implements accessories{
     private int currentExp;
     private int maxExp;
     private int level;
+    public boot(){
+        level = 1;
+        this.spd = 50;
+        this.atk = 10;
+        this.def = 20;
+        this.mana = 10;
+        this.updateStatus();
+    }
     @Override
     public double getAtk() {
         return atk;
