@@ -19,7 +19,15 @@ public interface Character {
     boolean getRingEquip();
     void setArmorEquip(boolean armor);
     boolean getArmorEquip();
+    void setIsUnconscious(boolean unconscious);
+    boolean getIsUnconscious();
+    int getCurrentHp();
+    void setCurrentHp(int hp);
+    double getDef();
     void updateTotalStatus();
+    double attack();
+    double skill1();
+    double skill2();
     default void updateExp(int exp){
         this.setCurrentExp(getCurrentExp()+exp);
         if(this.getCurrentExp() >= this.getMaxExp()){
@@ -100,6 +108,20 @@ public interface Character {
             updateTotalStatus();
         }else {
             System.out.println("You didn't equip armor yet");
+        }
+    }
+    default void wasAttacked(double damage){
+        double damageTaken = damage - getDef() ;
+        if(damageTaken > 0) {
+            setCurrentHp((int) (getCurrentHp() - damageTaken));
+            System.out.println(getName() + " obtained " + damageTaken + " damage");
+            if (getCurrentHp() <= 0) {
+                setCurrentHp(0);
+                setIsUnconscious(true);
+                System.out.println("your character is unconscious");
+            }
+        }else{
+            System.out.println(getName()+" No damage");
         }
     }
 }

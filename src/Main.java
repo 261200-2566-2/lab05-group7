@@ -15,6 +15,7 @@ public class Main {
         kai.displayStats();
         kai.updateExp(509);
         kai.unEquipBoot(B);
+
         System.out.println("(Kai unequip boots)");
         kai.displayStats();
         System.out.println("----------------------------------------------------");
@@ -27,8 +28,8 @@ public class Main {
         System.out.println("(Kai equip armor)");
         kai.equipArmor(A);
         kai.displayStats();
-        kai.equipArmor(A);
-        kai.unEquipBoot(B);
+        kai.equipBoot(B);
+        kai.displayStats();
         System.out.println("----------------------------------------------------");
         System.out.println("(new mage character 'flash' !!!)");
         Mage flash = new Mage("flash");
@@ -42,5 +43,27 @@ public class Main {
         System.out.println("(new tank character 'tank' !!!)");
         Tank tank =new Tank("tank");
         tank.displayStats();
+        System.out.println("level up");
+        tank.updateExp(600);
+        tank.displayStats();
+        System.out.println("----------------------------------------------------");
+        System.out.println("swordman vs tank");
+        tank.wasAttacked(kai.attack());
+        tank.displayStats();
+        kai.displayStats();
+        kai.wasAttacked(tank.skill1());
+        tank.wasAttacked(kai.skill2());
+        kai.wasAttacked(tank.attack());
+        tank.displayStats();
+        kai.displayStats();
+        kai.wasAttacked(tank.skill2());
+        kai.wasAttacked(tank.skill1());
+        kai.wasAttacked(tank.skill2());
+        System.out.println("kai die");
+        tank.displayStats();
+        kai.displayStats();
+        System.out.println("----------------------------------------------------");
+        System.out.println("mage vs tank");
+        flash.wasAttacked(tank.skill2());
     }
 }

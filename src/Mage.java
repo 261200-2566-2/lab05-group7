@@ -6,26 +6,29 @@ public class Mage implements Character{
     private int maxHp;
     private int currentHp;
     private int maxMana;
+    private int currentMana;
     private double SPD;
     private double atk;
     private double def;
     private double buffSPD;
     private double buffAtk;
     private double buffDef;
-    private double buffMana;
+    private int buffMana;
     private double totalSPD;
     private double totalAtk;
     private double totalDef;
-    private double totalMana;
+    private int totalMana;
     private boolean isBootEquip;
     private boolean isRingEquip;
     private boolean isArmorEquip;
+    private boolean isUnconscious;
     public Mage(String name){
         this.name = name;
         level = 1;
         updateStatus();
         updateTotalStatus();
         currentHp = maxHp;
+        currentMana = maxMana;
     }
 
     public void updateStatus(){
@@ -35,6 +38,7 @@ public class Mage implements Character{
         SPD = 18+level;
         atk = 65+(5*level);
         def = 50+(6*level);
+        currentMana = maxMana;
     }
 
 
@@ -58,11 +62,20 @@ public class Mage implements Character{
     public int getCurrentExp(){
         return currentExp;
     }
+    public int getCurrentHp(){
+        return currentHp;
+    }
     public void setCurrentExp(int exp){
         this.currentExp = exp;
     }
     public String getJob(){
         return "Mage";
+    }
+    public double getDef(){
+        return def;
+    }
+    public void setCurrentHp(int hp){
+        currentHp = hp;
     }
     public void setBuffSPD(double spd){
         this.buffSPD+=spd;
@@ -85,6 +98,9 @@ public class Mage implements Character{
     public void setArmorEquip(boolean armor){
         isArmorEquip = armor;
     }
+    public void setIsUnconscious(boolean unconscious){
+        isUnconscious = unconscious;
+    }
 
     @Override
     public boolean getBootEquip() {
@@ -99,6 +115,9 @@ public class Mage implements Character{
     public boolean getArmorEquip() {
         return isArmorEquip;
     }
+    public boolean getIsUnconscious(){
+        return isUnconscious;
+    }
 
     @Override
     public void updateTotalStatus() {
@@ -106,12 +125,61 @@ public class Mage implements Character{
         totalDef = def+buffDef;
         totalAtk = atk+buffAtk;
         totalMana = maxMana+buffMana;
+        currentMana = maxMana;
+    }
+    public double attack(){
+        if(!isUnconscious){
+            if(currentMana >= 2){
+                System.out.println(name+" use 2 mana");
+                currentMana -= 2;
+                System.out.println(name+" attack "+atk);
+                return atk;
+            }else{
+                System.out.println("You run out of mana");
+                return 0;
+            }
+        }else{
+            System.out.println("Character is unconscious");
+            return 0;
+        }
+    }
+    public double skill1(){
+        if(!isUnconscious){
+            if(currentMana >= 10){
+                System.out.println(name+" use 10 mana");
+                currentMana -= 10;
+                System.out.println(name+" attack "+ 50+atk);
+                return 50+atk;
+            }else{
+                System.out.println("You run out of mana");
+                return 0;
+            }
+        }else{
+            System.out.println("Character is unconscious");
+            return 0;
+        }
+    }
+    public double skill2(){
+        if(!isUnconscious){
+            if(currentMana >= 30){
+                System.out.println(name+" use 30 mana");
+                currentMana -= 30;
+                System.out.println(name+" attack "+70*level);
+                return 70*level;
+            }else{
+                System.out.println("You run out of mana");
+                return 0;
+            }
+        }else{
+            System.out.println("Character is unconscious");
+            return 0;
+        }
     }
     public void displayStats() {
         System.out.println("name : " + this.name);
         System.out.println("level " + this.level+ " | exp : " + this.currentExp +"/" + this.maxExp);
         System.out.println("HP : " + this.currentHp +"/" + this.maxHp);
-        System.out.println("Mana : " + this.totalMana);
+        System.out.println("Mana : "+this.currentMana+"/" + this.totalMana);
         System.out.println("Speed : " + this.totalSPD);
         System.out.println("Attack : " + this.totalAtk);
         System.out.println("Defense : " + this.totalDef);
