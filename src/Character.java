@@ -5,6 +5,9 @@ public interface Character {
     void updateLevel();
     int getCurrentExp();
     int getMaxExp();
+    int getMaxHp();
+    int getMaxMana();
+    int getCurrentMana();
     void setCurrentExp(int exp);
     String getJob();
     void displayStats();
@@ -123,6 +126,12 @@ public interface Character {
         }else{
             System.out.println(getName()+" No damage");
         }
+    }
+
+    default void showCurrentState(){
+        System.out.println("--Show " + getName() + " current state--");
+        System.out.println("HP = " + getCurrentHp() + "/" + getMaxHp());
+        System.out.println("Mana = " + getCurrentMana() + "/" + getMaxMana());
     }
 }
 

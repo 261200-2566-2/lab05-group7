@@ -74,8 +74,17 @@ public class Tank implements Character{
     public double getDef(){
         return def;
     }
+    public int getMaxHp(){
+        return this.maxHp;
+    }
     public void setCurrentHp(int hp){
         currentHp = hp;
+    }
+    public int getMaxMana(){
+        return this.maxMana;
+    }
+    public int getCurrentMana(){
+        return this.currentMana;
     }
     public void setBuffSPD(double spd){
         this.buffSPD+=spd;
