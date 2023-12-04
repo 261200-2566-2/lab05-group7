@@ -47,10 +47,13 @@ public class ring implements accessories{
         updateStatus();
     }
     public void showStatus(){
-        System.out.println(atk);
-        System.out.println(def);
-        System.out.println(mana);
-        System.out.println(spd);
+        System.out.println("------Show status of ring-----");
+        System.out.println("level : " + this.level);
+        System.out.println("exp :" + this.currentExp +"/"+this.maxExp);
+        System.out.println("atk +"+atk);
+        System.out.println("def +"+def);
+        System.out.println("mana +" +mana);
+        System.out.println("spd +"+ spd);
     }
     public void updateStatus() {
         atk = 2 * level;

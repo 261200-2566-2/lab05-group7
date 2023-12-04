@@ -51,7 +51,7 @@ public interface Character {
             setBuffMana(-boot.getMana());
             updateTotalStatus();
         }else{
-            System.out.println("doesn't equip boot");
+            System.out.println("You didn't equip boots yet");
         }
     }
 
@@ -76,7 +76,7 @@ public interface Character {
             setBuffMana(-ring.getMana());
             updateTotalStatus();
         }else{
-            System.out.println("doesn't equip ring");
+            System.out.println("You didn't equip ring yet");
         }
     }
     default void equipArmor(armor armor){
@@ -100,7 +100,7 @@ public interface Character {
             setBuffMana(-armor.getMana());
             updateTotalStatus();
         }else {
-            System.out.println("doesn't equip armor");
+            System.out.println("You didn't equip armor yet");
         }
     }
 }

@@ -1,6 +1,4 @@
-import java.util.List;
-
-public class Swordman implements Character{
+public class Mage implements Character{
     String name;
     private int level;
     private int maxExp;
@@ -8,7 +6,6 @@ public class Swordman implements Character{
     private int maxHp;
     private int currentHp;
     private int maxMana;
-
     private double SPD;
     private double atk;
     private double def;
@@ -24,22 +21,21 @@ public class Swordman implements Character{
     private boolean isRingEquip;
     private boolean isArmorEquip;
 
-    public Swordman(String name){
+    public Mage(String name){
         this.name = name;
         level = 1;
         updateStatus();
         updateTotalStatus();
         currentHp = maxHp;
-
     }
 
     public void updateStatus(){
-        maxHp = 250+(10*level);
-        maxMana = 100+(2*level);
+        maxHp = 240+(10*level);
+        maxMana = 120+(2*level);
         maxExp = 100*level;
-        SPD = 20+level;
-        atk = 50+(5*level);
-        def = 65+(6*level);
+        SPD = 18+level;
+        atk = 65+(5*level);
+        def = 50+(6*level);
     }
 
 
@@ -67,7 +63,7 @@ public class Swordman implements Character{
         this.currentExp = exp;
     }
     public String getJob(){
-        return "Swordman";
+        return "Mage";
     }
     public void setBuffSPD(double spd){
         this.buffSPD+=spd;
@@ -116,10 +112,9 @@ public class Swordman implements Character{
         System.out.println("name : " + this.name);
         System.out.println("level " + this.level+ " | exp : " + this.currentExp +"/" + this.maxExp);
         System.out.println("HP : " + this.currentHp +"/" + this.maxHp);
-        System.out.println("Mana : "+ this.totalMana);
+        System.out.println("Mana : " + this.totalMana);
         System.out.println("Speed : " + this.totalSPD);
         System.out.println("Attack : " + this.totalAtk);
         System.out.println("Defense : " + this.totalDef);
     }
-
 }
