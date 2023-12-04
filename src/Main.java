@@ -2,16 +2,45 @@
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.print("Hello and welcome!");
-
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        System.out.println("(new swordman character 'kai' !!!)");
+        Swordman kai = new Swordman("kai");
+        kai.displayStats();
+        kai.updateExp(101);
+        kai.displayStats();
+        System.out.println("(new boots)");
+        boot B = new boot();
+        B.showStatus();
+        System.out.println("(Kai equip boots)");
+        kai.equipBoot(B);
+        kai.displayStats();
+        kai.updateExp(509);
+        kai.unEquipBoot(B);
+        System.out.println("(Kai unequip boots)");
+        kai.displayStats();
+        System.out.println("----------------------------------------------------");
+        armor A = new armor();
+        System.out.println("(new armor)");
+        A.showStatus();
+        A.updateExp(40);
+        System.out.println("(armor level up)");
+        A.showStatus();
+        System.out.println("(Kai equip armor)");
+        kai.equipArmor(A);
+        kai.displayStats();
+        kai.equipArmor(A);
+        kai.unEquipBoot(B);
+        System.out.println("----------------------------------------------------");
+        System.out.println("(new mage character 'flash' !!!)");
+        Mage flash = new Mage("flash");
+        flash.displayStats();
+        ring r = new ring();
+        System.out.println("(new ring)");
+        r.showStatus();
+        flash.equipRing(r);
+        flash.displayStats();
+        System.out.println("----------------------------------------------------");
+        System.out.println("(new tank character 'tank' !!!)");
+        Tank tank =new Tank("tank");
+        tank.displayStats();
     }
 }
