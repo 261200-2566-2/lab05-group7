@@ -5,6 +5,9 @@ public interface Character {
     void updateLevel();
     int getCurrentExp();
     int getMaxExp();
+    int getMaxHp();
+    int getMaxMana();
+    int getCurrentMana();
     void setCurrentExp(int exp);
     String getJob();
     void displayStats();
@@ -19,7 +22,15 @@ public interface Character {
     boolean getRingEquip();
     void setArmorEquip(boolean armor);
     boolean getArmorEquip();
+    void setIsUnconscious(boolean unconscious);
+    boolean getIsUnconscious();
+    int getCurrentHp();
+    void setCurrentHp(int hp);
+    double getDef();
     void updateTotalStatus();
+    double attack();
+    double skill1();
+    double skill2();
     default void updateExp(int exp){
         this.setCurrentExp(getCurrentExp()+exp);
         if(this.getCurrentExp() >= this.getMaxExp()){
@@ -101,6 +112,26 @@ public interface Character {
         }else {
             System.out.println("You didn't equip armor yet");
         }
+    }
+    default void wasAttacked(double damage){
+        double damageTaken = damage - getDef() ;
+        if(damageTaken > 0) {
+            setCurrentHp((int) (getCurrentHp() - damageTaken));
+            System.out.println(getName() + " obtained " + damageTaken + " damage");
+            if (getCurrentHp() <= 0) {
+                setCurrentHp(0);
+                setIsUnconscious(true);
+                System.out.println("your character is unconscious");
+            }
+        }else{
+            System.out.println(getName()+" No damage");
+        }
+    }
+
+    default void showCurrentState(){
+        System.out.println("--Show " + getName() + " current state--");
+        System.out.println("HP = " + getCurrentHp() + "/" + getMaxHp());
+        System.out.println("Mana = " + getCurrentMana() + "/" + getMaxMana());
     }
 }
 
