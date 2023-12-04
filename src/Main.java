@@ -65,5 +65,11 @@ public class Main {
         System.out.println("----------------------------------------------------");
         System.out.println("mage vs tank");
         flash.wasAttacked(tank.skill2());
+        tank.wasAttacked(flash.skill2());
+        tank.wasAttacked(flash.skill1());
+        tank.wasAttacked(flash.attack());
+        flash.wasAttacked(tank.skill1());
+        tank.displayStats();
+        flash.displayStats();
     }
 }
