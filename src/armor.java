@@ -63,4 +63,5 @@ public class armor implements accessories{
         maxExp = 10*level;
         updateExp(0);
     }
+
 }

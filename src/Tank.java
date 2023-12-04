@@ -1,4 +1,4 @@
-public class Mage implements Character{
+public class Tank implements Character{
     String name;
     private int level;
     private int maxExp;
@@ -20,7 +20,7 @@ public class Mage implements Character{
     private boolean isBootEquip;
     private boolean isRingEquip;
     private boolean isArmorEquip;
-    public Mage(String name){
+    public Tank(String name){
         this.name = name;
         level = 1;
         updateStatus();
@@ -29,12 +29,12 @@ public class Mage implements Character{
     }
 
     public void updateStatus(){
-        maxHp = 240+(10*level);
-        maxMana = 120+(2*level);
+        maxHp = 500+(10*level);
+        maxMana = 100+(2*level);
         maxExp = 100*level;
-        SPD = 18+level;
-        atk = 65+(5*level);
-        def = 50+(6*level);
+        SPD = 10+level;
+        atk = 40+(5*level);
+        def = 100+(6*level);
     }
 
 
@@ -62,7 +62,7 @@ public class Mage implements Character{
         this.currentExp = exp;
     }
     public String getJob(){
-        return "Mage";
+        return "Tank";
     }
     public void setBuffSPD(double spd){
         this.buffSPD+=spd;

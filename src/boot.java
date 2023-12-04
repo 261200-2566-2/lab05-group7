@@ -63,4 +63,5 @@ public class boot implements accessories{
         maxExp = 10 * level;
         updateExp(0);
     }
+
 }

@@ -8,7 +8,6 @@ public class Swordman implements Character{
     private int maxHp;
     private int currentHp;
     private int maxMana;
-
     private double SPD;
     private double atk;
     private double def;

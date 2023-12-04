@@ -42,7 +42,5 @@ public class Main {
         System.out.println("(new tank character 'tank' !!!)");
         Tank tank =new Tank("tank");
         tank.displayStats();
-
-
     }
 }

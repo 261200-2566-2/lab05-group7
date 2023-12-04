@@ -54,7 +54,6 @@ public interface Character {
             System.out.println("You didn't equip boots yet");
         }
     }
-
     default void equipRing(ring ring){
         if(!getRingEquip()) {
             setRingEquip(true);
