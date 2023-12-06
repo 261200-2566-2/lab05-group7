@@ -2,16 +2,89 @@
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.print("Hello and welcome!");
+        System.out.println("(new swordman character 'kai' !!!)");
+        Swordman kai = new Swordman("kai");
+        kai.displayStats();
+        kai.updateExp(101);
+        kai.displayStats();
+        System.out.println("(new boots)");
+        boot B = new boot();
+        B.showStatus();
+        System.out.println("(Kai equip boots)");
+        kai.equipBoot(B);
+        kai.displayStats();
+        kai.updateExp(509);
+        kai.unEquipBoot(B);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        System.out.println("(Kai unequip boots)");
+        kai.displayStats();
+        System.out.println("----------------------------------------------------");
+        armor A = new armor();
+        System.out.println("(new armor)");
+        A.showStatus();
+        A.updateExp(40);
+        System.out.println("(armor level up)");
+        A.showStatus();
+        System.out.println("(Kai equip armor)");
+        kai.equipArmor(A);
+        kai.displayStats();
+        kai.equipBoot(B);
+        kai.displayStats();
+        System.out.println("----------------------------------------------------");
+        System.out.println("(new mage character 'flash' !!!)");
+        Mage flash = new Mage("flash");
+        flash.displayStats();
+        ring r = new ring();
+        System.out.println("(new ring)");
+        r.showStatus();
+        flash.equipRing(r);
+        flash.displayStats();
+        System.out.println("----------------------------------------------------");
+        System.out.println("(new tank character 'tank' !!!)");
+        Tank tank =new Tank("tank");
+        tank.displayStats();
+        System.out.println("level up");
+        tank.updateExp(600);
+        tank.displayStats();
+        System.out.println("----------------------------------------------------");
+        System.out.println("!!!!!!!!!!!!!!swordman vs tank!!!!!!!!!!!!!!!!");
+        tank.wasAttacked(kai.attack());
+        System.out.println(" ");
+        tank.showCurrentState();
+        kai.showCurrentState();
+        System.out.println(" ");
+        kai.wasAttacked(tank.skill1());
+        System.out.println(" ");
+        tank.wasAttacked(kai.skill2());
+        System.out.println(" ");
+        kai.wasAttacked(tank.attack());
+        System.out.println(" ");
+        tank.showCurrentState();
+        kai.showCurrentState();
+        System.out.println(" ");
+        kai.wasAttacked(tank.skill2());
+        System.out.println(" ");
+        kai.wasAttacked(tank.skill1());
+        System.out.println(" ");
+        kai.wasAttacked(tank.skill2());
+        System.out.println(" ");
+        System.out.println("kai die");
+        System.out.println(" ");
+        tank.showCurrentState();
+        kai.showCurrentState();
+        System.out.println("----------------------------------------------------");
+        System.out.println("!!!!!!!!!!!!!mage vs tank!!!!!!!!!!!!!");
+        flash.wasAttacked(tank.skill2());
+        System.out.println(" ");
+        tank.wasAttacked(flash.skill2());
+        System.out.println(" ");
+        tank.wasAttacked(flash.skill1());
+        System.out.println(" ");
+        tank.wasAttacked(flash.attack());
+        System.out.println(" ");
+        flash.wasAttacked(tank.skill1());
+        System.out.println(" ");
+        tank.showCurrentState();
+        flash.showCurrentState();
     }
 }
